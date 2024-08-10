@@ -38,26 +38,6 @@ MERN
 
 
 
-<!-- ## Demo
-
-### Demo Video
-[Budgetwise]()
-
-### Login Page
-![Login](image-4.png)
-
-### Registration Page
-![Register](image-5.png)
-
-### Dashboard
-(![Dashboard](image.png))
-
-### Adding Transaction
-![Add Transaction](image-2.png)
-
-### Adding Category
-![Add Category](image-3.png) -->
-
 ## Demo
 
 ### Demo Video
@@ -196,11 +176,10 @@ The project uses MongoDB as the database, with the following models:
 
 
 
-## To-do
+## To-Do
 
 ### Savings Goals
-- **Set Savings Goals**: Users can set savings goals with a target amount and a target date.
-- **Track Progress**: The system automatically tracks progress towards these goals based on the user's transactions.
+- **Set Goals & Track Progress**: Users can set savings goals with a target amount & target date and automatically track the progress based on the transactions.
 
 ### Reports
 - **Visual Representations**: Reports include visual aids such as pie charts and bar graphs to represent spending categories.
