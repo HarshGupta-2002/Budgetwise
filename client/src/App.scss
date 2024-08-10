@@ -1,0 +1,217 @@
+// App.scss
+// only constains the css for Login, Register and Dashboard components
+
+$primary-color: #4CAF50; // Green color
+$secondary-color: #ffffff; // White color
+$background-color: #f7f7f7; // Light gray background
+$text-color: #333; // Dark text color
+$border-radius: 8px;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$transition-duration: 0.3s;
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: $background-color;
+
+    img {
+        width: 20%;
+    }
+}
+
+.form {
+    background-color: $secondary-color;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform $transition-duration;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: $text-color;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    input {
+        width: 95%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid lighten($text-color, 20%);
+        border-radius: $border-radius;
+        font-size: 1rem;
+        transition: border-color $transition-duration;
+
+        &:focus {
+            border-color: $primary-color;
+            outline: none;
+        }
+    }
+
+    button {
+        width: fit-content;
+        padding: 12px;
+        background-color: $primary-color;
+        color: $secondary-color;
+        border: none;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color $transition-duration;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+
+    p {
+        margin-top: 20px;
+        font-size: 0.9rem;
+
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color $transition-duration;
+
+            &:hover {
+                color: darken($primary-color, 10%);
+                text-decoration: none;
+            }
+        }
+
+    }
+
+}
+
+.dashboard {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e0e0e0;
+
+        h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .logout-button {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken(#dc3545, 10%);
+            }
+        }
+    }
+
+    .transactions {
+        margin-top: 5vh;
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            button {
+                padding: 10px 20px;
+                margin: 0 10px;
+                border: none;
+                background-color: #f0f0f0;
+                color: #333;
+                cursor: pointer;
+                font-weight: bold;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+
+                &.active {
+                    background-color: #4CAF50;
+                    color: #fff;
+                }
+            }
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+    }
+
+
+    .categories {
+        margin-top: 5vh;
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            button {
+                padding: 10px 20px;
+                margin: 0 10px;
+                border: none;
+                background-color: #f0f0f0;
+                color: #333;
+                cursor: pointer;
+                font-weight: bold;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+
+                &.active {
+                    background-color: #4CAF50;
+                    color: #fff;
+                }
+            }
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+    }
+}
+
+.watermark {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.watermark img {
+    width: 100%;
+    height: auto;
+}

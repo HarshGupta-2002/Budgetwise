@@ -1,0 +1,52 @@
+.list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.category-container {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    width: 75%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to next line if space is not enough */
+    gap: 10px; /* Space between boxes */
+}
+
+.category-box {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    padding-right: 40px; /* Add extra space on the right for the delete button */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative; /* Position relative for absolute positioning of the delete button */
+}
+
+.delete-button {
+    padding: 5px;
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Position it 10px from the right edge */
+    transform: translateY(-50%); /* Center vertically */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button:hover {
+    background-color: #fdd;
+}
