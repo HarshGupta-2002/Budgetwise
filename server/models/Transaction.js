@@ -6,6 +6,11 @@ const transactionSchema = new mongoose.Schema({
     date: { type: Date, required: true },
     category: { type: String, required: true },
     description: { type: String },
+    type: { 
+        type: String, 
+        enum: ['paid', 'received'],
+        required: true 
+    },
 }, { timestamps: true });
 
 const Transaction = mongoose.model('Transaction', transactionSchema);

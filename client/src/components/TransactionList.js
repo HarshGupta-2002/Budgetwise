@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/TransactionList.scss';
 
-
 const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransaction, categories }) => {
     const [editingTransactionId, setEditingTransactionId] = useState(null);
     const [editFormData, setEditFormData] = useState({});
@@ -35,6 +34,7 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
                         <th>Category</th>
                         <th>Amount</th>
                         <th>Description</th>
+                        <th>Transaction Type</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -81,6 +81,16 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
                                         />
                                     </td>
                                     <td>
+                                        <select
+                                            name="type"
+                                            value={editFormData.type}
+                                            onChange={handleInputChange}
+                                        >
+                                            <option value="paid">Paid</option>
+                                            <option value="received">Received</option>
+                                        </select>
+                                    </td>
+                                    <td>
                                         <button onClick={handleSaveClick}>Save</button>
                                         <button onClick={handleCancelClick}>Cancel</button>
                                     </td>
@@ -91,6 +101,7 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
                                     <td>{transaction.category}</td>
                                     <td>{transaction.amount}</td>
                                     <td>{transaction.description}</td>
+                                    <td>{transaction.type}</td>
                                     <td>
                                         <button onClick={() => handleEditClick(transaction)}>Edit</button>
                                         <button onClick={() => onDeleteTransaction(transaction._id)}>Delete</button>

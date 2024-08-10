@@ -12,7 +12,7 @@ const getTransactions = async (req, res) => {
 
 // Add a new transaction
 const addTransaction = async (req, res) => {
-    const { amount, date, category, description } = req.body;
+    const { amount, date, category, description, type } = req.body;
 
     try {
         const transaction = new Transaction({
@@ -21,6 +21,7 @@ const addTransaction = async (req, res) => {
             date,
             category,
             description,
+            type,
         });
 
         const createdTransaction = await transaction.save();
@@ -32,7 +33,7 @@ const addTransaction = async (req, res) => {
 
 // Update an existing transaction
 const updateTransaction = async (req, res) => {
-    const { amount, date, category, description } = req.body;
+    const { amount, date, category, description, type } = req.body;
 
     try {
         const transaction = await Transaction.findById(req.params.id);
@@ -45,6 +46,7 @@ const updateTransaction = async (req, res) => {
         transaction.date = date || transaction.date;
         transaction.category = category || transaction.category;
         transaction.description = description || transaction.description;
+        transaction.type = type || transaction.type;
 
         const updatedTransaction = await transaction.save();
         res.json(updatedTransaction);
