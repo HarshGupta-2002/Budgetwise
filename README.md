@@ -38,9 +38,55 @@ MERN
 
 
 
+<!-- ## Demo
+
+### Demo Video
+[Budgetwise]()
+
+### Login Page
+![Login](image-4.png)
+
+### Registration Page
+![Register](image-5.png)
+
+### Dashboard
+(![Dashboard](image.png))
+
+### Adding Transaction
+![Add Transaction](image-2.png)
+
+### Adding Category
+![Add Category](image-3.png) -->
+
 ## Demo
 
-[User Registration System](https://youtu.be/TEaB7sHy2EY)
+### Demo Video
+[Budgetwise]()
+
+<details>
+  <summary>Login Page</summary>
+  <img src=".\client\src\assets\image-1.png" alt="Login">
+</details>
+
+<details>
+  <summary>Registration Page</summary>
+  <img src=".\client\src\assets\image-5.png" alt="Register">
+</details>
+
+<details>
+  <summary>Dashboard</summary>
+  <img src=".\client\src\assets\image.png" alt="Dashboard">
+</details>
+
+<details>
+  <summary>Adding Transaction</summary>
+  <img src=".\client\src\assets\image-2.png" alt="Add Transaction">
+</details>
+
+<details>
+  <summary>Adding Category</summary>
+  <img src=".\client\src\assets\image-3.png" alt="Add Category">
+</details>
 
 
 
@@ -66,7 +112,7 @@ The project is run locally on your machine. To run it, follow the respctive step
      git clone https://github.com/HarshGupta-2002/Budgetwise.git
      ```
    - Navigate to the `Budgetwise` directory:
-   
+
      ```bash
      cd Budgetwise
      ```
@@ -150,15 +196,17 @@ The project uses MongoDB as the database, with the following models:
 
 
 
-## To-dO
+## To-do
 
 ### Savings Goals
 - **Set Savings Goals**: Users can set savings goals with a target amount and a target date.
 - **Track Progress**: The system automatically tracks progress towards these goals based on the user's transactions.
 
 ### Reports
-- **Monthly and Yearly Reports**: Generate reports that show income, expenses, and savings over time.
 - **Visual Representations**: Reports include visual aids such as pie charts and bar graphs to represent spending categories.
+
+### Responsiveness
+- **Screen Optimization**: Ensure the application is fully responsive and works seamlessly on all screens.
 
 
 

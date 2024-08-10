@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/TransactionList.scss';
 
 const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransaction, categories }) => {
     const [editingTransactionId, setEditingTransactionId] = useState(null);
     const [editFormData, setEditFormData] = useState({});
+    const [totals, setTotals] = useState({ earnings: 0, expenses: 0, savings: 0 });
+
+    useEffect(() => {
+        const earnings = transactions
+            .filter(transaction => transaction.type === 'received')
+            .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+        const expenses = transactions
+            .filter(transaction => transaction.type === 'paid')
+            .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+        const savings = earnings - expenses;
+
+        setTotals({ earnings, expenses, savings });
+    }, [transactions]);
 
     const handleEditClick = (transaction) => {
         setEditingTransactionId(transaction._id);
@@ -27,6 +42,13 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
     return (
         <div className="list">
             <h2>Transaction History</h2>
+            <div className="totals">
+                <h3>Total Earnings: {totals.earnings} INR</h3>
+                <h3>Total Expenses: {totals.expenses} INR</h3>
+                <h3>
+                    Total Savings: {totals.savings} INR {totals.savings < 0 && <span>(debt)</span>}
+                </h3>
+            </div>
             <table className="transaction-table">
                 <thead>
                     <tr>
