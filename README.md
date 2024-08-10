@@ -2,7 +2,7 @@
 # Budgetwise
 ### A personal finance management system
 
-Designed and implemented a personal finance management system that helps users track their income, expenses, and savings goals. The system should allow users to add, view, update, and delete financial transactions, categorize them, and generate reports to understand their spending patterns.
+Designed and implemented a personal finance management system that helps users track their income, expenses, and savings goals. The system allows users to add, view, update, and delete financial transactions, categorize them, and generate reports to understand their spending patterns.
 
 
 
@@ -41,7 +41,7 @@ MERN
 ## Demo
 
 ### Demo Video
-[Budgetwise]()
+[Budgetwise](https://youtu.be/tFT1n9MkZJY)
 
 <details>
   <summary>Login Page</summary>
