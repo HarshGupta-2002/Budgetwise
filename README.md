@@ -1,70 +1,166 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Budgetwise
+### A personal finance management system
 
-## Available Scripts
+Designed and implemented a personal finance management system that helps users track their income, expenses, and savings goals. The system should allow users to add, view, update, and delete financial transactions, categorize them, and generate reports to understand their spending patterns.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Management
+- **Registration and Login**: Users can register and log in to the system with their credentials (Javascript Web Tokens).
+- **Unique User Profiles**: Each user has a unique profile that includes personal details such as name, email and monthly income.
 
-### `npm test`
+### Transaction Management
+- **Add Transactions**: Users can add financial transactions with details including amount, date, category (e.g., Food, Rent, Entertainment), description and Transaction type (paid or received).
+- **View Transactions**: Users can view a list of their transactions.
+- **Update Transactions**: Users can update the details of their existing transactions.
+- **Delete Transactions**: Users can delete transactions from their records.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Category Management
+- **Add Custom Categories**: Users can create custom categories for their transactions.
+- **Manage Categories**: Users can view and manage their custom categories.
 
-### `npm run build`
+### Data Persistence
+- **Persistent Data**: All user data, transactions, categories, and savings goals are stored and managed in a database, ensuring data is retained across sessions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## TechStack
 
-### `npm run eject`
+MERN
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **M** - MondoDB to user credentials
+- **E** - Express.js to create the server
+- **R** - React.js for frontend development
+- **N** - Node.js for managing packages, and backend development
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Demo
 
-## Learn More
+[User Registration System](https://youtu.be/TEaB7sHy2EY)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Before you begin, make sure you have the following installed on your system:
 
-### Analyzing the Bundle Size
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+- MongoDB (running locally or a MongoDB Atlas account)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Installation
 
-### Advanced Configuration
+The project is run locally on your machine. To run it, follow the respctive steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**1. Clone the Repository**
 
-### Deployment
+   - Open a terminal or command prompt.
+   - Clone the repository using the following command:
+     ```bash
+     git clone https://github.com/HarshGupta-2002/Budgetwise.git
+     ```
+   - Navigate to the `Budgetwise` directory:
+     ```bash
+     cd Budgetwise
+     ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**2. Server Setup**
+   - Navigate to the server directory (from the root- Budgetwise directory):
+     ```bash
+     cd server
+     ```
+   - Install the required Node.js dependencies:
+     ```bash
+     npm install
+     ```
+   - Set up environment variables:
+     - Create a `.env` file in the `server` directory.
+     - Add the following environment variables:
+       ```env
+       PORT=5000
+       MONGO_URI=your_mongodb_connection_string/database_name
+       JWT_SECRET=your_jwt_secret
+       ```
+     - Replace `your_mongodb_connection_string/database_name` and `your_jwt_secret` with your actual MongoDB connection string with the database name and JWT secret.
+    
+- Start the server
+    ```bash
+    npm start
+    ```
 
-### `npm run build` fails to minify
+**3. Client Setup**
+   - Navigate to the client directory (from the root- Budgetwise directory):
+     ```bash
+     cd client
+     ```
+   - Install the required Node.js dependencies:
+     ```bash
+     npm install
+     ```
+- Set up environment variables:
+    - Create a `.env` file in the `client` directory.
+    - Add the following environment variable:
+        ```env
+        REACT_APP_API_BASE_URL=http://localhost:5000
+        ```
+- Start the server
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Database Design
+
+The project uses MongoDB as the database, with the following models:
+
+### 1. **User Model**
+   - **Collection Name:** `users`
+   - **Fields:**
+     - `name` (String) - The full name of the user.
+     - `email` (String) - The unique email address of the user.
+     - `password` (String) - The hashed password for authentication.
+     - `income` (Number) - The monthly income of the user
+     - `createdAt` (Date) - The date when the user account was created.
+
+### 2. **Transaction Model**
+   - **Collection Name:** `transactions`
+   - **Fields:**
+     - `userId` (ObjectId) - Reference to the user who owns the transaction.
+     - `amount` (Number) - The amount of the transaction.
+     - `date` (Date) - The date of the transaction.
+     - `category` (String) - The category of the transaction (e.g., Food, Rent, Entertainment).
+     - `description` (String) - A brief description of the transaction.
+     - `type` (String) - The type of transaction, either `paid` or `received`.
+     - `createdAt` (Date) - The date when the transaction was created.
+
+### 3. **Category Model**
+   - **Collection Name:** `categories`
+   - **Fields:**
+     - `userId` (ObjectId) - Reference to the user who owns the category.
+     - `name` (String) - The name of the category.
+     - `createdAt` (Date) - The date when the category was created.
+
+
+
+## To-dO
+
+### Savings Goals
+- **Set Savings Goals**: Users can set savings goals with a target amount and a target date.
+- **Track Progress**: The system automatically tracks progress towards these goals based on the user's transactions.
+
+### Reports
+- **Monthly and Yearly Reports**: Generate reports that show income, expenses, and savings over time.
+- **Visual Representations**: Reports include visual aids such as pie charts and bar graphs to represent spending categories.
+
+
+
+## Author
+
+- [@HarshGupta-2002](https://github.com/HarshGupta-2002)

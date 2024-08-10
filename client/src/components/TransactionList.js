@@ -32,7 +32,7 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
                     <tr>
                         <th>Date</th>
                         <th>Category</th>
-                        <th>Amount</th>
+                        <th>Amount (INR)</th>
                         <th>Description</th>
                         <th>Transaction Type</th>
                         <th>Actions</th>
