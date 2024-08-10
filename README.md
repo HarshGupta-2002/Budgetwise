@@ -66,6 +66,7 @@ The project is run locally on your machine. To run it, follow the respctive step
      git clone https://github.com/HarshGupta-2002/Budgetwise.git
      ```
    - Navigate to the `Budgetwise` directory:
+   
      ```bash
      cd Budgetwise
      ```
