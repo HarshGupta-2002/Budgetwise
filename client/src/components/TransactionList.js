@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/TransactionList.scss';
+import * as XLSX from 'xlsx';
 
 const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransaction, categories }) => {
     const [editingTransactionId, setEditingTransactionId] = useState(null);
@@ -39,16 +40,28 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
         setEditingTransactionId(null);
     };
 
+    const downloadExcel = () => {
+        const ws = XLSX.utils.json_to_sheet(transactions);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Transactions");
+        XLSX.writeFile(wb, "transaction_history.xlsx");
+    };
+
     return (
         <div className="list">
             <h2>Transaction History</h2>
             <div className="totals">
-                <h3>Total Earnings: {totals.earnings} INR</h3>
-                <h3>Total Expenses: {totals.expenses} INR</h3>
+                <h3>Total Earnings: <span style={{ color: 'blue' }}>{totals.earnings} INR</span></h3>
+                <h3>Total Expenses: <span style={{ color: 'blue' }}>{totals.expenses} INR</span></h3>
                 <h3>
-                    Total Savings: {totals.savings} INR {totals.savings < 0 && <span>(debt)</span>}
+                    Total Savings:
+                    <span style={{ color: totals.savings < 0 ? 'red' : 'blue' }}>
+                        {totals.savings} INR
+                    </span>
+                    {totals.savings < 0 && <span> (debt)</span>}
                 </h3>
             </div>
+
             <table className="transaction-table">
                 <thead>
                     <tr>
@@ -134,6 +147,10 @@ const TransactionList = ({ transactions, onUpdateTransaction, onDeleteTransactio
                     ))}
                 </tbody>
             </table>
+            <div className='download'>
+                <button onClick={downloadExcel}>Download Excel</button>
+            </div>
+
         </div>
     );
 };

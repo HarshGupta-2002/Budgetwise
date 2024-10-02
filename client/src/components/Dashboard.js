@@ -5,6 +5,7 @@ import TransactionForm from './TransactionForm';
 import TransactionList from './TransactionList';
 import CategoryForm from './CategoryForm';
 import CategoryList from './CategoryList';
+import Plot from './Plot';
 import { useNavigate } from 'react-router-dom';
 import '../App.scss';
 
@@ -149,6 +150,11 @@ const Dashboard = () => {
                     )}
                 </div>
             </div>
+
+            <div className='plot'>
+                <Plot transactions={transactions} />
+            </div>
+
         </div>
     );
 };
