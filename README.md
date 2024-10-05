@@ -178,12 +178,6 @@ The project uses MongoDB as the database, with the following models:
 
 ## To-Do
 
-### Savings Goals
-- **Set Goals & Track Progress**: Users can set savings goals with a target amount & target date and automatically track the progress based on the transactions.
-
-### Reports
-- **Visual Representations**: Reports include visual aids such as pie charts and bar graphs to represent spending categories.
-
 ### Responsiveness
 - **Screen Optimization**: Ensure the application is fully responsive and works seamlessly on all screens.
 
