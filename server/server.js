@@ -8,7 +8,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.ALLOWED_URI, // Use the ALLOWED_URI from the .env file
+    credentials: true,
+}));
 app.use(express.json());
 
 // Connect to MongoDB
