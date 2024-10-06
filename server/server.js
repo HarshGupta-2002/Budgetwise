@@ -8,9 +8,24 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// app.use((req, res, next) => {
+//   const origin = req.headers.origin;
+
+//   const allowedOrigins = [process.env.ALLOWED_URI, 'http://localhost:3000'];
+
+//   if (allowedOrigins.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//     res.header('Access-Control-Allow-Credentials', 'true');
+//   }
+
+//   next();
+// });
+// app.options('*', cors()); // Enable preflight requests for all routes
+
 app.use((req, res, next) => {
   const origin = req.headers.origin;
-
   const allowedOrigins = [process.env.ALLOWED_URI, 'http://localhost:3000'];
 
   if (allowedOrigins.includes(origin)) {
@@ -20,9 +35,13 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
   }
 
+  // Respond to preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+
   next();
 });
-app.options('*', cors()); // Enable preflight requests for all routes
 
 app.use(express.json());
 
