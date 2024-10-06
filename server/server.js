@@ -8,10 +8,22 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
-    origin: process.env.ALLOWED_URI, // Use the ALLOWED_URI from the .env file
-    credentials: true,
-}));
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  const allowedOrigins = [process.env.ALLOWED_URI, 'http://localhost:3000'];
+
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Credentials', 'true');
+  }
+
+  next();
+});
+app.options('*', cors()); // Enable preflight requests for all routes
+
 app.use(express.json());
 
 // Connect to MongoDB
@@ -23,5 +35,5 @@ app.use('/api/transactions', require('./routes/transactionRoutes'));
 app.use('/api/categories', require('./routes/categoryRoutes'));
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
