@@ -26,6 +26,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
+  console.log("Incoming Origin:", origin);
   const allowedOrigins = [process.env.ALLOWED_URI, 'http://localhost:3000'];
 
   if (allowedOrigins.includes(origin)) {
