@@ -24,27 +24,28 @@ const PORT = process.env.PORT || 5000;
 // });
 // app.options('*', cors()); // Enable preflight requests for all routes
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  console.log("Incoming Origin:", origin);
-  const allowedOrigins = [process.env.ALLOWED_URI, 'http://localhost:3000'];
+// app.use((req, res, next) => {
+//   const origin = req.headers.origin;
+//   console.log("Incoming Origin:", origin);
+//   const allowedOrigins = [process.env.ALLOWED_URI, 'http://localhost:3000'];
 
-  if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Credentials', 'true');
-  }
+//   if (allowedOrigins.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//     res.header('Access-Control-Allow-Credentials', 'true');
+//   }
 
-  // Respond to preflight requests
-  if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    return res.sendStatus(200);
-  }
+//   // Respond to preflight requests
+//   if (req.method === 'OPTIONS') {
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//     return res.sendStatus(200);
+//   }
 
-  next();
-});
+//   next();
+// });
 
+app.use(cors())
 app.use(express.json());
 
 // Connect to MongoDB
